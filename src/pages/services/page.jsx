@@ -38,7 +38,7 @@ const Page = () => {
             </thead>
             <tbody>
               {
-                todo.map((t, key) => (
+                todo?.map((t, key) => (
                   <tr key={key}>
                     <td>{t.id}</td>
                     <td>{t.text}</td>
