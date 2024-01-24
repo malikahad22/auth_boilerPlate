@@ -12,11 +12,11 @@ const Page = () => {
 
     const navigate = useNavigate();
 
-    useEffect(()=>{
-        if(user){
+    useEffect(() => {
+        if (user) {
             navigate('/home');
         }
-    },[navigate , user])
+    }, [navigate, user])
 
     const userData = (e) => {
 
@@ -39,9 +39,10 @@ const Page = () => {
         else {
             alert("Please Provide Valid Credentials")
         }
-        
-        
+
+
     }
+    
     return (
         <div className='flex flex-col items-center justify-center h-screen px-5 space-y-5'>
             <form className='flex flex-col w-full md:w-[50%] lg:w-[40%]  space-y-5 shadow-xl rounded-lg p-5'>

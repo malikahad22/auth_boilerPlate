@@ -24,7 +24,7 @@ const Page = () => {
                 <div className="modal-action">
                     <form method="dialog " className='w-full space-y-3'>
                         <input type="text" name='todo' placeholder="Type Your Todo" value={todo} className="w-full input input-bordered" onChange={(e) => { setTodo(e.target.value) }} required />
-                        <button type='submit' className="btn" onClick={handleDispatch}>Add</button>
+                        <button   className="btn" onClick={handleDispatch}>Add</button>
                     </form>
                 </div>
             </div>

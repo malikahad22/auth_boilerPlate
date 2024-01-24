@@ -12,6 +12,7 @@ const Page = (p) => {
         setTodo(props.text || "");
     }, [props.text])
 
+
     const handleDispatch = (e) => {
         e.preventDefault();
 

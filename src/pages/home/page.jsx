@@ -20,10 +20,10 @@ const Page = () => {
         <div className='space-y-5'>
           <p className='text-2xl font-bold text-center'>Count:{count}</p>
           <div className='flex gap-3'>
-            <button className='btn-neutral btn' onClick={() => dispatch(increament())}>Inc</button>
-            <button className='btn-neutral btn' onClick={() => dispatch(decrement())}>Dec</button>
+            <button className=' btn-success text-white btn' onClick={() => dispatch(increament())}>Inc</button>
+            <button className='btn-success text-white btn' onClick={() => dispatch(decrement())}>Dec</button>
           </div>
-          <button className='w-full btn btn-neutral' onClick={() => dispatch(reset())}>Reset</button>
+          <button className='w-full btn btn-error text-white' onClick={() => dispatch(reset())}>Reset</button>
         </div>
 
       </div>
