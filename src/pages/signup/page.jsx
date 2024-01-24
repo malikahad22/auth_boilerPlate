@@ -33,7 +33,7 @@ const Page = () => {
             navigate('/home');
         }
         else {
-            alert("Please Provide Correct Credentials")
+            alert("Please Provide Correct Credentials and Password Should be greater then 8 characters long")
         }
     }
 
