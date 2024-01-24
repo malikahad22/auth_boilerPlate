@@ -13,6 +13,13 @@ const Page = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
+
+        let userDataList = localStorage.getItem('usersList');
+
+        if (!userDataList) {
+            localStorage.setItem('usersList', JSON.stringify([]))
+        }
+
         if (user) {
             navigate('/home');
         }
@@ -42,7 +49,7 @@ const Page = () => {
 
 
     }
-    
+
     return (
         <div className='flex flex-col items-center justify-center h-screen px-5 space-y-5'>
             <form className='flex flex-col w-full md:w-[50%] lg:w-[40%]  space-y-5 shadow-xl rounded-lg p-5'>

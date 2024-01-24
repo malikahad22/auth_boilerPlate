@@ -11,7 +11,13 @@ const Page = () => {
     let userDataList = [];
 
     userDataList = localStorage.getItem("usersList");
-    userDataList = JSON.parse(userDataList)
+    if (!userDataList) {
+        localStorage.setItem("usersList", JSON.stringify([]));
+    }
+    else {
+
+        userDataList = JSON.parse(userDataList)
+    }
 
     let user = localStorage.getItem('user');
     user = JSON.parse(user);
