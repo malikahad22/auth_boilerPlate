@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { checkDataFormat } from '../../middleware/userValidationMiddleware/page';
-
+import { getUserListFromLocal, getUserFromLocal, setLocalStorage } from '../../utlis/handleLocalStorage';
 const Page = () => {
 
     const navigate = useNavigate();
@@ -10,17 +10,13 @@ const Page = () => {
     const [password, setPassword] = useState("");
     let userDataList = [];
 
-    userDataList = localStorage.getItem("usersList");
+    userDataList = getUserListFromLocal();
     if (!userDataList) {
-        localStorage.setItem("usersList", JSON.stringify([]));
-    }
-    else {
-
-        userDataList = JSON.parse(userDataList)
+        setLocalStorage('usersList', []);
     }
 
-    let user = localStorage.getItem('user');
-    user = JSON.parse(user);
+
+    let user = getUserFromLocal();
 
     useEffect(() => {
         if (user) {
@@ -35,7 +31,7 @@ const Page = () => {
 
         if (validation) {
             userDataList.push({ email, password });
-            localStorage.setItem('usersList', JSON.stringify(userDataList));
+            setLocalStorage('usersList', userDataList);
             navigate('/home');
         }
         else {
@@ -68,7 +64,7 @@ const Page = () => {
                                     <label className="font-light text-gray-500 dark:text-gray-300">I accept the <Link className="font-medium text-primary-600 hover:underline dark:text-primary-500">Terms and Conditions</Link></label>
                                 </div>
                             </div>
-                            <button type="submit" onClick={userData} className="btn btn-primary w-full">Create an account</button>
+                            <button type="submit" onClick={userData} className="w-full btn btn-primary">Create an account</button>
                             <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                                 Already have an account? <Link to={'/'} className="font-medium text-primary-600 hover:underline dark:text-primary-500">Login here</Link>
                             </p>

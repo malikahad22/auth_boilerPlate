@@ -3,6 +3,7 @@ import { addTodo } from '../../redux/todoSlice/todoSlice';
 import { useDispatch } from 'react-redux';
 
 const Page = () => {
+    
     const dispatch = useDispatch();
     const [todo, setTodo] = useState("");
 
@@ -17,6 +18,7 @@ const Page = () => {
             alert("Please Enter Valid Value")
         }
     }
+    
     return (
         <dialog id="my_modal_1" className="modal">
             <div className="modal-box">

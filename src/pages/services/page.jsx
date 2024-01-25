@@ -1,13 +1,15 @@
-import React, { useState } from 'react'
-import Header from '../../components/Header/page';
 import { useSelector, useDispatch } from 'react-redux';
-import Modal from '../../components/Modal/page';
+import React, { useState } from 'react'
 import { deleteTodo } from '../../redux/todoSlice/todoSlice';
+
+import Header from '../../components/Header/page';
+import Modal from '../../components/Modal/page';
 import UpdaterModal from '../../components/updaterModal/page';
 
+
 const Page = () => {
-  
-  const [props , setProps] = useState(null);
+
+  const [props, setProps] = useState(null);
 
   const dispatch = useDispatch();
   const todo = useSelector(state => state.todos.todos);
@@ -53,7 +55,7 @@ const Page = () => {
           </table>
         </div>
       </div>
-      <UpdaterModal props={props || ""}/>
+      <UpdaterModal props={props || ""} />
       <Modal />
     </div>
   )

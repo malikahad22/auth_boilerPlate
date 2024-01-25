@@ -1,23 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom';
 import { checkDataFormat, checkUserExist } from '../../middleware/userValidationMiddleware/page';
-
+import { getUserFromLocal, getUserListFromLocal, setLocalStorage } from '../../utlis/handleLocalStorage';
 const Page = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    let user = localStorage.getItem('user');
-    user = JSON.parse(user);
+    let user = getUserFromLocal();
 
     const navigate = useNavigate();
 
     useEffect(() => {
 
-        let userDataList = localStorage.getItem('usersList');
+        let userDataList = getUserListFromLocal();
 
         if (!userDataList) {
-            localStorage.setItem('usersList', JSON.stringify([]))
+            setLocalStorage('usersList', []);
         }
 
         if (user) {
@@ -35,7 +34,7 @@ const Page = () => {
             let userExist = checkUserExist(email, password)
 
             if (userExist) {
-                localStorage.setItem('user', JSON.stringify(userExist));
+                setLocalStorage('user', userExist);
                 navigate('/home')
             }
             else {

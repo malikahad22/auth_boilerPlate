@@ -1,7 +1,9 @@
-import React from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { reset } from '../../redux/counterSlice/counterSlice';
+
+import React from 'react';
+
 const Page = () => {
 
   const navigate = useNavigate();
@@ -13,6 +15,8 @@ const Page = () => {
     dispatch(reset());
     navigate('/')
   }
+
+
   return (
     <>
       <header className='flex flex-row items-center justify-around w-full h-16 shadow-md text-zinc-700'>

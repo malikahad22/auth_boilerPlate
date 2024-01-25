@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { updateTodo } from '../../redux/todoSlice/todoSlice';
+
 const Page = (p) => {
 
     const [todo, setTodo] = useState("");
     const dispatch = useDispatch();
-    let { props } = p;
-    let id = props.id;
+
+    let { props: { id, text } } = p;
+
 
     useEffect(() => {
-        setTodo(props.text || "");
-    }, [props.text])
+        setTodo(text || "");
+    }, [text])
 
 
     const handleDispatch = (e) => {
@@ -19,10 +21,10 @@ const Page = (p) => {
         if (todo.trim()) {
             dispatch(updateTodo({ id, todo }))
             document.getElementById('my_modal_2').close();
-        }else{
+        } else {
             alert("Please Enter Valid Value")
         }
-    
+
     }
 
     return (
@@ -32,7 +34,7 @@ const Page = (p) => {
                     <h3 className="text-lg font-bold">Update Your Todo</h3>
                     <div className="modal-action">
                         <form method="dialog " className='w-full space-y-3'>
-                            <input type="text" name='todo' placeholder="Type Your Todo" value={todo} className="w-full input input-bordered" onChange={(e) => setTodo(e.target.value)} required/>
+                            <input type="text" name='todo' placeholder="Type Your Todo" value={todo} className="w-full input input-bordered" onChange={(e) => setTodo(e.target.value)} required />
                             <button className="btn" onClick={handleDispatch}>Update</button>
                         </form>
                     </div>

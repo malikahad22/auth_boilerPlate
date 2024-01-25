@@ -1,5 +1,5 @@
-import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import React from 'react';
 import PrivateRoutes from './utlis/privateRoutes';
 import Home from './pages/home/page'
 import About from './pages/about/page';

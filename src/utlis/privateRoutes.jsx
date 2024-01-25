@@ -1,9 +1,9 @@
 import { Outlet, Navigate } from 'react-router-dom'
-
+import { getUserFromLocal } from './handleLocalStorage';
 const PrivateRoutes = () => {
 
-    let auth = localStorage.getItem('user');
-    auth = JSON.parse(auth);
+    let auth = getUserFromLocal();
+    
     return (
         auth ? <Outlet /> : <Navigate to="/" />
     )
